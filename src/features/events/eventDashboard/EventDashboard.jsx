@@ -7,10 +7,8 @@ import {sampleData} from '../../../app/api/sampleData';
 export default function EventDashboard({formOpen, setFormOpen, selectEvent, selectedEvent}) {
 
     const [events, setEvents] = useState(sampleData);
-    
 
     // handle the created event
-
     function handleCreateEvent(event) {
        setEvents([...events, event]); 
     }
@@ -26,8 +24,7 @@ export default function EventDashboard({formOpen, setFormOpen, selectEvent, sele
     function handleDeleteEvent(eventId) {
         setEvents(events.filter(evt => evt.id !== eventId))
     }
-   
-
+    
     return(
         <Grid>
             <Grid.Column width={10}>
