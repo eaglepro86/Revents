@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Icon, Item, ItemContent, Segment, List, Button } from 'semantic-ui-react';
 import EventListAtendee from './EventListAtendee';
 
-export default function EventListItem({event, selectEvent, deleteEvent}) {
+export default function EventListItem({event, deleteEvent}) {
     return(
         <Segment.Group>
             <Segment>
-                <Item.Group>
+                <Item.Group> 
                     <Item>
                         <Item.Image size='tiny' circular src={event.hostPhotoURL} />
                         <ItemContent>
@@ -37,7 +38,7 @@ export default function EventListItem({event, selectEvent, deleteEvent}) {
                     {event.description}
                 </div>
                 <Button onClick={() => deleteEvent(event.id)} color='red' floated='right' content='Delete' />
-                <Button onClick={() => selectEvent(event)} color='teal' floated='right' content='View' />
+                <Button as={Link} to={`/events/${event.id}`} color='teal' floated='right' content='View' />
             </Segment>
         </Segment.Group>
     )
